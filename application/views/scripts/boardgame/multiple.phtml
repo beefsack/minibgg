@@ -1,0 +1,24 @@
+<div class="center"><h3>Compare Games</h3></div> 
+<table class="blockcenter"> 
+	<tr> 
+		<td colspan="3" class="comparetitle">Comparing:</td> 
+	</tr> 
+	<? foreach ($this->data->boardgame as $boardgame): ?>
+	<tr> 
+		<td class="comparecell"><a href="<?= $this->url(array('controller' => 'boardgame', 'action' => $boardgame['objectid']), 'default', true) ?>"><?= $boardgame->name[0] ?></a></td> 
+		<td class="comparecell"><?= $boardgame->shortname ?></td> 
+		<td class="comparecell"><a href="<?= $this->url(array('controller' => 'boardgame', 'action' => $boardgame->removeids), 'default', true) ?>">Rem</a></td> 
+	</tr> 
+	<? endforeach ?>
+</table>
+<div class="center"><h4>Data</h4></div>
+<?= $this->compareTable($this->compareTable) ?>
+<form id="form.search" method="get" action="<?= $this->url(array('controller' => 'search'), 'default', true)?>">
+	<p class="center">
+		<label for="input.search">Compare:</label><br/>
+		<input id="input.search" name="search" title="Search"/><br/>
+		<input id="input.objectid" name="objectid" value="<?= $this->objectId ?>" type="hidden"/>
+		<input id="input.submit" title="Submit button" type="submit" value="Submit"/><br/>
+		<label for="exact">Exact search</label><input type="checkbox" id="exact" name="exact" value="1"/>
+	</p>
+</form>

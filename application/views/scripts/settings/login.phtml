@@ -1,0 +1,11 @@
+<p class="centersmall">You must give a username for access to special features.  For play logging, you also need to give your BGG password hash.</p>
+<p class="centersmall"><strong>Note:</strong> The password hash is <strong>not your normal BGG password</strong>.  If you are logged into boardgamegeek.com, <a href="http://www.boardgamegeek.com/cookiedump.php" target="_blank">click here to see your password hash</a>.  It will be the value next to "[bggpassword] =&gt;".</p>
+<div class="center">
+<form method="post">
+<label for="bggusername">Username</label><br/> 
+<input id="bggusername" name="bggusername" title="Username" size="8" value="<?= $_COOKIE['bggusername'] ?>"/><br/> 
+<label for="bggpassword">Password hash</a></label><br/> 
+<input id="bggpassword" name="bggpassword" title="Password" size="8" value="<?= $_COOKIE['bggpassword'] ?>"/><br/>
+<input type="submit" value="Set User Details"></input>
+</form>
+</div> 

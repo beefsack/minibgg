@@ -1,0 +1,11 @@
+<html>
+<head>
+<?= $this->headLink()->appendStylesheet(PUBLIC_PATH . 'css/style.css'); ?>
+<meta charset="UTF-8">
+</head>
+<body>
+<? if (!$this->layout()->disableHeaderFooter): ?><div class="linkstop"><a id="top"></a><a href="<?= $this->url(array('controller' => 'index', 'action' => 'index'), 'default', true) ?>">Home</a> - <a href="#bot">Bottom</a> - <? if ($_COOKIE['bggusername']): ?><a href="<?= $this->url(array('controller' => 'settings', 'action' => 'logout'), 'default', true) ?>">Logout <?= $_COOKIE['bggusername'] ?></a><? else: ?><a href="<?= $this->url(array('controller' => 'settings', 'action' => 'login'), 'default', true) ?>">Login</a><? endif ?></div><? endif ?>
+<?= $this->layout()->content ?>
+<? if (!$this->layout()->disableHeaderFooter): ?><div class="linksbot"><a id="bot"></a><a href="<?= $this->url(array('controller' => 'index', 'action' => 'index'), 'default', true) ?>">Home</a> - <a href="#top">Top</a> - <? if ($_COOKIE['bggusername']): ?><a href="<?= $this->url(array('controller' => 'settings', 'action' => 'logout'), 'default', true) ?>">Logout <?= $_COOKIE['bggusername'] ?></a><? else: ?><a href="<?= $this->url(array('controller' => 'settings', 'action' => 'login'), 'default', true) ?>">Login</a><? endif ?></div><? endif ?>
+</body>
+</html>

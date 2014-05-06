@@ -1,0 +1,17 @@
+<? if ($this->requestSent): ?>
+<div class="center"><?= $this->status ?></div>
+<div class="center">Back to <a href="<?= $this->url(array('controller' => 'boardgame', 'action' => $this->objectId), 'default', true) ?>"><?= $this->objectName ?></a></div>
+<? else: ?>
+<div class="center"><h3>Add Play for <a href="<?= $this->url(array('controller' => 'boardgame', 'action' => $this->objectId), 'default', true) ?>"><?= $this->objectName ?></a></h3></div> 
+<form id="form.play" method="post"> 
+	<p class="center"> 
+		<label for="dateyear">Play Date: (YYYY-MM-DD)</label><br/> 
+		<input id="dateyear" name="dateyear" title="Year" size="4" value="<?= date(Y) ?>"/> - <input id="datemonth" name="datemonth" title="Month" size="2" value="<?= date(m) ?>"/> - <input id="dateday" name="dateday" title="Day" size="2" value="<?= date(d) ?>"/><br/> 
+		<label for="quantity">Quantity</label><br/> 
+		<input id="quantity" name="quantity" title="Quantity" size="2" value="1"/><br/> 
+		<input id="objectid" name="objectid" type="hidden" value="<?= $this->objectId ?>"/> 
+		<input id="objectid" name="gamename" type="hidden" value="<?= $this->objectName ?>"/> 
+		<input id="input.submit" title="Submit button" type="submit" value="Submit"/><br/> 
+	</p> 
+</form> 
+<? endif ?>

@@ -1,0 +1,15 @@
+<form id="form.search" method="get" action="<?= $this->url(array('controller' => 'search'), 'default', true)?>"> 
+	<p class="center"> 
+		<label for="input.search">Search:</label><br/> 
+		<input id="input.search" name="search" title="Search" value="<?= $this->search ?>"/><br/> 
+		<input id="input.objectid" name="objectid" type="hidden" value="<?= $this->objectId ?>"/>
+		<input id="input.submit" type="submit" value="Search"/><br/> 
+		<label for="exact">Exact search</label><input type="checkbox" id="exact" name="exact" value="1"<? if ($this->exact): ?> checked="checked"<? endif ?>/> 
+	</p> 
+</form> 
+<div class="resultcount"><?= count($this->results->boardgame) ?> Results for <em><?= $this->search ?></em></div>
+<ul>
+<? foreach ($this->results->boardgame as $boardgame): ?>
+	<li><a href="<?= $this->url(array('controller' => 'boardgame', 'action' => (($this->objectId) ? $this->objectId.','.$boardgame['objectid'] : $boardgame['objectid'])), 'default', true) ?>"><?= $boardgame->name ?></a></li>
+<? endforeach ?>
+</ul>
